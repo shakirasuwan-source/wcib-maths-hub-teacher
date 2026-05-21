@@ -1,0 +1,85 @@
+Here are all the links formatted for Replit — find each `href="#"` next to the tool name and replace with the URL below.
+
+---
+
+**TOPBAR / SIDEBAR**
+```
+Trello Board → https://trello.com/b/Gg4twjge/math-dept-tracker
+Maths Team Folder → https://wcibth.sharepoint.com/sites/Mathematics/Shared%20Documents/Maths%20Team%20Hub?csf=1&web=1&e=XnqkIf&CID=9133bfc3-d8ec-40f4-9779-10db4bf8b727
+```
+
+---
+
+**FEATURE CARDS**
+```
+Assessment Hub → https://wcibth.sharepoint.com/sites/Mathematics/Shared%20Documents/Forms/AllItems.aspx?csf=1&web=1&e=3uJxar&CID=3f3ed975%2D9341%2D4081%2Dba09%2D4a752fef3d9d&FolderCTID=0x012000D0CF7BB6916D3541A8EDC8E4D61F8DC0&id=%2Fsites%2FMathematics%2FShared%20Documents%2FMaths%20Team%20Hub%2F3%2E%20Assessment
+Maths Team Folder → https://wcibth.sharepoint.com/sites/Mathematics/Shared%20Documents/Maths%20Team%20Hub?csf=1&web=1&e=XnqkIf&CID=9133bfc3-d8ec-40f4-9779-10db4bf8b727
+```
+
+---
+
+**SUBSCRIPTION PLATFORMS**
+```
+ActiveHub → https://homepage.pearson.com/#/spa/wrapper/application/urn:pearson:gps:spa:landingspaid
+Sparx Maths → https://maths.sparx-learning.com/teacher/group/022fe2ea-03fe-4aea-af23-ffdc0cd830af/homework/planner?s=wellingtoncollegeinternationalbangkok&school=ae339d85-8753-4e59-af67-8dacbfd4d8e7
+Pearson ExamWizard → https://www.examwizard.co.uk/
+Save My Exams → https://www.savemyexams.com/join/
+Dr Frost Maths → https://www.drfrost.org/dashboard
+```
+
+---
+
+**DELIVER A LESSON**
+```
+Go Teach Maths → https://www.goteachmaths.co.uk/
+MathsPad → https://www.mathspad.co.uk/
+PixiMaths → https://www.piximaths.co.uk/ks2-ks3-ks4-resource-index
+Dr Frost Maths → https://www.drfrost.org/dashboard
+```
+
+---
+
+**PRACTICE & HOMEWORK**
+```
+Corbettmaths → https://corbettmaths.com/
+Dr Austin Maths → https://www.draustinmaths.com/
+Maths Genie → https://yesgenie.com/gcse/maths
+Sparx Maths → https://maths.sparx-learning.com/teacher/group/022fe2ea-03fe-4aea-af23-ffdc0cd830af/homework/planner?s=wellingtoncollegeinternationalbangkok&school=ae339d85-8753-4e59-af67-8dacbfd4d8e7
+Save My Exams → https://www.savemyexams.com/join/
+```
+
+---
+
+**STARTERS & INTERACTIVES**
+```
+Mathsbox → https://www.mathsbox.org.uk/home.php
+Wordswall → https://wordwall.net/en-gb/community/coordinates
+MathsBot → https://mathsbot.com/starterMenu
+Blooket → https://dashboard.blooket.com/my-sets
+Quizlet → https://quizlet.com/login
+Desmos → https://www.desmos.com/calculator
+GeoGebra → https://www.geogebra.org/math
+Wayground → https://wayground.com/admin
+```
+
+---
+
+**EXAM RESOURCES TAB — ADD THESE TWO NEW LINKS**
+
+In Replit, inside `id="res-exam"`, add these two rows alongside the existing ones:
+```
+IAL Mathematics (Edexcel) → https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/mathematics-2018.coursematerials.html#%2FfilterQuery=category:Pearson-UK:Category%2FExam-materials
+
+IGCSE Mathematics A (Edexcel) → https://qualifications.pearson.com/en/qualifications/edexcel-international-gcses/international-gcse-mathematics-a-2016.html
+```
+
+Paste this HTML for each new row inside the exam tab:
+```html
+<a class="ll-row" href="https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/mathematics-2018.coursematerials.html#%2FfilterQuery=category:Pearson-UK:Category%2FExam-materials" target="_blank"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><span class="ll-name">IAL Mathematics (Edexcel)</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+
+<a class="ll-row" href="https://qualifications.pearson.com/en/qualifications/edexcel-international-gcses/international-gcse-mathematics-a-2016.html" target="_blank"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><span class="ll-name">IGCSE Mathematics A (Edexcel)</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+```
+
+---
+
+**Westie's Workshop** — you'll need to add the URL manually as it wasn't in your list. Just find `Westie's Workshop` in the code and add the href when you have it.
