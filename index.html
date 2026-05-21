@@ -334,6 +334,82 @@ a { text-decoration: none; color: inherit; }
 }
 .feat-card:hover .fc-arrow { color: var(--text); right: 12px; }
 
+/* Key Dates inline panel */
+.kd-card {
+  grid-column: span 2;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 14px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  min-height: 110px;
+}
+.kd-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.kd-title-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text);
+}
+.kd-sub {
+  font-size: 10px;
+  color: var(--muted);
+  font-weight: 400;
+}
+.kd-rows {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 14px;
+  flex: 1;
+}
+.kd-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.kd-date {
+  background: var(--clay-bg);
+  border-radius: 7px;
+  padding: 4px 8px 5px;
+  min-width: 40px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.kd-d {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--orange-d);
+  line-height: 1.05;
+}
+.kd-m {
+  font-size: 8.5px;
+  font-weight: 600;
+  color: var(--orange-d);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-top: 1px;
+}
+.kd-label { min-width: 0; }
+.kd-lbl-title {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.3;
+}
+.kd-lbl-sub {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 1px;
+}
+
 /* ══════════════════════════════════
    SECTION HEADER
 ══════════════════════════════════ */
@@ -576,6 +652,16 @@ a { text-decoration: none; color: inherit; }
 
 /* link list */
 .llist { padding: 4px 0; }
+
+.ll-group {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 12px 16px 4px;
+}
+.ll-group + .ll-row { margin-top: 0; }
 
 .ll-row {
   display: flex;
@@ -826,12 +912,6 @@ a { text-decoration: none; color: inherit; }
 
       <!-- FEAT CARDS -->
       <div class="feat-row">
-        <a class="feat-card fc-teal" href="https://shakirasuwan-source.github.io/wcib-maths-sow/" target="_blank">
-          <div class="fc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-          <div class="fc-title">Scheme of Work</div>
-          <div class="fc-meta">2026/27 · Years 7–13</div>
-          <span class="fc-arrow">→</span>
-        </a>
         <a class="feat-card fc-orange" href="#" target="_blank">
           <div class="fc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
           <div class="fc-title">Assessment Hub</div>
@@ -844,12 +924,33 @@ a { text-decoration: none; color: inherit; }
           <div class="fc-meta">SharePoint · All files</div>
           <span class="fc-arrow">→</span>
         </a>
-        <a class="feat-card fc-amber" href="#" target="_blank">
-          <div class="fc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-          <div class="fc-title">Key Dates</div>
-          <div class="fc-meta">Michaelmas Term</div>
-          <span class="fc-arrow">→</span>
-        </a>
+        <div class="kd-card">
+          <div class="kd-head">
+            <div class="kd-title-row">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--orange-d)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span class="kd-heading">Key Dates</span>
+            </div>
+            <span class="kd-sub">Michaelmas Term 2026/27</span>
+          </div>
+          <div class="kd-rows">
+            <div class="kd-item">
+              <div class="kd-date"><div class="kd-d">02</div><div class="kd-m">Sep</div></div>
+              <div class="kd-label"><div class="kd-lbl-title">Term Begins</div><div class="kd-lbl-sub">Inset Day · All staff</div></div>
+            </div>
+            <div class="kd-item">
+              <div class="kd-date"><div class="kd-d">23</div><div class="kd-m">Oct</div></div>
+              <div class="kd-label"><div class="kd-lbl-title">Half-Term Break</div><div class="kd-lbl-sub">Returns 02 Nov</div></div>
+            </div>
+            <div class="kd-item">
+              <div class="kd-date"><div class="kd-d">13</div><div class="kd-m">Nov</div></div>
+              <div class="kd-label"><div class="kd-lbl-title">Parents' Evening</div><div class="kd-lbl-sub">Year 11</div></div>
+            </div>
+            <div class="kd-item">
+              <div class="kd-date"><div class="kd-d">12</div><div class="kd-m">Dec</div></div>
+              <div class="kd-label"><div class="kd-lbl-title">End of Term</div><div class="kd-lbl-sub">Carol Service</div></div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- SCHEME OF WORK FULL CARD -->
@@ -982,16 +1083,17 @@ a { text-decoration: none; color: inherit; }
         <!-- DEPT -->
         <div class="tab-content active" id="res-dept">
           <div class="llist">
-            <div style="font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px 4px;">Documents</div>
-            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><span class="ll-name">Reporting Guidelines</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><span class="ll-name">Master Document</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <div class="ll-group">Department</div>
             <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><span class="ll-name">Maths Dept Handbook</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><span class="ll-name">Staff Absence / Cover Form</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><span class="ll-name">Reporting Guidelines</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
             <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><span class="ll-name">Student Borrowing Log</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><span class="ll-name">Behaviour Sanctions</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><span class="ll-name">Teacher Resource Logins</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
             <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><span class="ll-name">Department Meetings</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
             <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div><span class="ll-name">Competitions</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><span class="ll-name">Teacher Resource Logins</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <div class="ll-group">School-Wide</div>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><span class="ll-name">Master Document</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><span class="ll-name">Staff Absence / Cover Form</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><span class="ll-name">Behaviour Sanctions</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
         </div>
 
