@@ -10,32 +10,62 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --navy:       #4A503D;
-  --navy-2:     #3D4232;
-  --navy-3:     #5A6149;
+  /* page surfaces */
   --bg:         #F4EFE7;
-  --sidebar-bg: #F3EEE8;
   --surface:    #FFFFFF;
   --panel-soft: #FBF8F4;
-  --teal:       #8A9471;
-  --teal-d:     #6F7A57;
-  --teal-bg:    #E8EBDD;
-  --teal-mid:   #C5CCB5;
-  --orange:     #C57E52;
-  --orange-d:   #A86640;
-  --orange-bg:  #F3E4DB;
-  --amber:      #CCAA87;
-  --amber-bg:   #F3EADB;
-  --green:      #8A9471;
-  --green-bg:   #E8EBDD;
-  --clay:       #D9B8A0;
-  --clay-bg:    #F2E7DF;
   --stone-bg:   #FBF8F4;
+  --border:     #E2DDD7;
+  --border-2:   #EFEAE2;
+
+  /* text */
   --text:       #2F3640;
   --mid:        #4F5762;
   --muted:      #6C7480;
-  --border:     #E2DDD7;
-  --border-2:   #EFEAE2;
+
+  /* nav / dark anchor */
+  --sidebar-bg:     #7A829B;
+  --sidebar-active: #9A8FAF;
+  --accent:         #DBA39D;
+  --on-dark:        #FFFFFF;
+  --on-dark-muted:  rgba(255,255,255,.72);
+  --on-dark-dim:    rgba(255,255,255,.55);
+  --on-dark-line:   rgba(255,255,255,.14);
+  --navy:           #7A829B;
+  --navy-2:         #6B7387;
+  --navy-3:         #9A8FAF;
+
+  /* pastel accent families */
+  --mint:    #C9E4D4;
+  --mint-bg: #E2F1E8;
+  --mint-d:  #5A9B7F;
+
+  --blue:    #A8BFD1;
+  --blue-bg: #D9E4ED;
+  --blue-d:  #6E8AA5;
+
+  --blush:    #DBA39D;
+  --blush-bg: #F0DDD9;
+  --blush-d:  #B47267;
+
+  --lav:    #B39EB5;
+  --lav-bg: #E3DBE5;
+  --lav-d:  #8A7194;
+
+  /* legacy aliases (so existing component rules keep working) */
+  --teal:      var(--mint);
+  --teal-d:    var(--mint-d);
+  --teal-bg:   var(--mint-bg);
+  --teal-mid:  #C5CCB5;
+  --green:     var(--mint);
+  --green-bg:  var(--mint-bg);
+  --orange:    var(--blush);
+  --orange-d:  var(--blush-d);
+  --orange-bg: var(--blush-bg);
+  --clay:      var(--blush);
+  --clay-bg:   var(--blush-bg);
+  --amber:     var(--lav);
+  --amber-bg:  var(--lav-bg);
   --f: 'Poppins', system-ui, sans-serif;
   --r: 12px;
   --r-sm: 8px;
@@ -59,7 +89,7 @@ a { text-decoration: none; color: inherit; }
   width: 210px;
   min-height: 100vh;
   background: var(--sidebar-bg);
-  border-right: 1px solid var(--border);
+  color: var(--on-dark);
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -71,7 +101,7 @@ a { text-decoration: none; color: inherit; }
 
 .sb-top {
   padding: 24px 20px 20px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--on-dark-line);
 }
 
 .sb-brand {
@@ -83,12 +113,12 @@ a { text-decoration: none; color: inherit; }
 
 .sb-logo {
   width: 36px; height: 36px;
-  background: var(--teal);
+  background: var(--accent);
   border-radius: 9px;
   display: flex; align-items: center; justify-content: center;
   font-size: 17px;
   font-weight: 700;
-  color: #fff;
+  color: var(--on-dark);
   flex-shrink: 0;
   letter-spacing: -.02em;
 }
@@ -96,14 +126,14 @@ a { text-decoration: none; color: inherit; }
 .sb-name {
   font-size: 13px;
   font-weight: 600;
-  color: var(--text);
+  color: var(--on-dark);
   line-height: 1.25;
   letter-spacing: .01em;
 }
 
 .sb-sub {
   font-size: 10.5px;
-  color: var(--mid);
+  color: var(--on-dark-muted);
   letter-spacing: .02em;
   padding-left: 2px;
   margin-top: 2px;
@@ -112,8 +142,8 @@ a { text-decoration: none; color: inherit; }
 /* term badge */
 .sb-term {
   margin-top: 14px;
-  background: var(--teal-bg);
-  border: 1px solid var(--border);
+  background: rgba(255,255,255,.10);
+  border: 1px solid var(--on-dark-line);
   border-radius: 7px;
   padding: 8px 12px;
 }
@@ -122,13 +152,13 @@ a { text-decoration: none; color: inherit; }
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--teal-d);
+  color: var(--accent);
   margin-bottom: 2px;
 }
 .sb-term-val {
   font-size: 11.5px;
   font-weight: 500;
-  color: var(--mid);
+  color: var(--on-dark);
 }
 
 /* nav */
@@ -142,7 +172,7 @@ a { text-decoration: none; color: inherit; }
   font-weight: 600;
   letter-spacing: .13em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--on-dark-dim);
   padding: 0 8px;
   margin: 10px 0 6px;
 }
@@ -155,15 +185,19 @@ a { text-decoration: none; color: inherit; }
   padding: 9px 10px;
   border-radius: 8px;
   cursor: pointer;
-  transition: background .15s;
-  color: var(--mid);
+  transition: background .15s, color .15s;
+  color: var(--on-dark-muted);
   font-size: 12.5px;
   font-weight: 400;
   margin-bottom: 1px;
 }
-.sb-link:hover { background: rgba(138,148,113,.10); color: var(--text); }
-.sb-link.active { background: var(--teal-bg); color: var(--text); }
-.sb-link.active svg { stroke: var(--teal-d); }
+.sb-link:hover { background: rgba(255,255,255,.08); color: var(--on-dark); }
+.sb-link.active {
+  background: var(--sidebar-active);
+  color: var(--on-dark);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+.sb-link.active svg { stroke: var(--on-dark); }
 .sb-link svg { flex-shrink: 0; }
 
 .sb-link-ext {
@@ -174,11 +208,11 @@ a { text-decoration: none; color: inherit; }
 
 .sb-bottom {
   padding: 14px 20px;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--on-dark-line);
 }
 .sb-date {
   font-size: 10.5px;
-  color: var(--mid);
+  color: var(--on-dark-muted);
   line-height: 1.5;
 }
 
@@ -241,7 +275,7 @@ a { text-decoration: none; color: inherit; }
 
 .tb-btn-primary {
   background: var(--navy);
-  color: #fff;
+  color: var(--on-dark);
 }
 .tb-btn-primary:hover { background: var(--navy-2); }
 
@@ -289,10 +323,10 @@ a { text-decoration: none; color: inherit; }
 }
 .feat-card:hover { transform: translateY(-2px); border-color: var(--teal); }
 
-.fc-teal    { background: var(--teal-bg);  --fc-accent: var(--teal-d); }
-.fc-orange  { background: var(--clay-bg);  --fc-accent: var(--orange-d); }
-.fc-navy    { background: var(--stone-bg); --fc-accent: var(--navy); }
-.fc-amber   { background: var(--amber-bg); --fc-accent: var(--orange-d); }
+.fc-teal    { background: var(--mint-bg);  --fc-accent: var(--mint-d); }
+.fc-orange  { background: var(--mint-bg);  --fc-accent: var(--mint-d); }
+.fc-navy    { background: var(--blue-bg);  --fc-accent: var(--blue-d); }
+.fc-amber   { background: var(--lav-bg);   --fc-accent: var(--lav-d); }
 
 .feat-card::after {
   content: '';
@@ -715,7 +749,7 @@ a { text-decoration: none; color: inherit; }
   transition: box-shadow .18s;
   color: inherit;
 }
-.sow-card:hover { box-shadow: 0 6px 22px rgba(74,80,61,.22); }
+.sow-card:hover { box-shadow: 0 6px 22px rgba(47,54,64,.18); }
 
 .sow-card::before {
   content: '';
@@ -723,7 +757,7 @@ a { text-decoration: none; color: inherit; }
   right: -60px; top: -60px;
   width: 220px; height: 220px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(138,148,113,.35) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(219,163,157,.30) 0%, transparent 65%);
   pointer-events: none;
 }
 
@@ -733,13 +767,13 @@ a { text-decoration: none; color: inherit; }
   font-weight: 600;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--clay);
+  color: var(--accent);
   margin-bottom: 5px;
 }
 .sow-title {
   font-size: 18px;
   font-weight: 700;
-  color: #fff;
+  color: var(--on-dark);
   line-height: 1.2;
   margin-bottom: 6px;
 }
@@ -771,8 +805,8 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   align-items: center;
   gap: 7px;
-  background: var(--teal);
-  color: #fff;
+  background: var(--accent);
+  color: var(--on-dark);
   font-family: var(--f);
   font-size: 12.5px;
   font-weight: 600;
@@ -784,7 +818,7 @@ a { text-decoration: none; color: inherit; }
   flex-shrink: 0;
   transition: background .15s;
 }
-.sow-card:hover .sow-btn { background: var(--teal-d); }
+.sow-card:hover .sow-btn { background: var(--blush-d); }
 
 /* ══════════════════════════════════
    ANIMATIONS
@@ -914,13 +948,13 @@ a { text-decoration: none; color: inherit; }
       <!-- FEAT CARDS -->
       <div class="feat-row">
         <a class="feat-card fc-orange" href="#" target="_blank">
-          <div class="fc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <div class="fc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
           <div class="fc-title">Assessment Hub</div>
           <div class="fc-meta">Trackers + Schedules</div>
           <span class="fc-arrow">→</span>
         </a>
         <a class="feat-card fc-navy" href="#" target="_blank">
-          <div class="fc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+          <div class="fc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
           <div class="fc-title">Maths Team Folder</div>
           <div class="fc-meta">SharePoint · All files</div>
           <span class="fc-arrow">→</span>
