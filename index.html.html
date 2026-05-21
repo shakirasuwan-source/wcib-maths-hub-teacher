@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>WCIB Maths Department Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:       #1A2B48;
+  --navy-2:     #223659;
+  --navy-3:     #2A416A;
+  --bg:         #F0EDE7;
+  --surface:    #FFFFFF;
+  --teal:       #22B5A4;
+  --teal-d:     #1A9D8E;
+  --teal-bg:    #E3F7F5;
+  --teal-mid:   #A8E8E2;
+  --orange:     #F2703C;
+  --orange-d:   #DC5E2A;
+  --orange-bg:  #FEF0E9;
+  --amber:      #E69B1C;
+  --amber-bg:   #FDF4E0;
+  --green:      #27A06A;
+  --green-bg:   #E4F5ED;
+  --text:       #181C2E;
+  --mid:        #5A5E72;
+  --muted:      #9EA2B5;
+  --border:     #E0DCD5;
+  --border-2:   #EAE7E1;
+  --f: 'Poppins', system-ui, sans-serif;
+  --r: 12px;
+  --r-sm: 8px;
+}
+
+html { font-size: 13.5px; }
+body {
+  font-family: var(--f);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  -webkit-font-smoothing: antialiased;
+}
+a { text-decoration: none; color: inherit; }
+
+/* ══════════════════════════════════
+   SIDEBAR
+══════════════════════════════════ */
+.sidebar {
+  width: 210px;
+  min-height: 100vh;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sb-top {
+  padding: 24px 20px 20px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.sb-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.sb-logo {
+  width: 36px; height: 36px;
+  background: var(--teal);
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+  letter-spacing: -.02em;
+}
+
+.sb-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.25;
+  letter-spacing: .01em;
+}
+
+.sb-sub {
+  font-size: 10.5px;
+  color: rgba(255,255,255,.38);
+  letter-spacing: .02em;
+  padding-left: 2px;
+  margin-top: 2px;
+}
+
+/* term badge */
+.sb-term {
+  margin-top: 14px;
+  background: rgba(34,181,164,.15);
+  border: 1px solid rgba(34,181,164,.25);
+  border-radius: 7px;
+  padding: 8px 12px;
+}
+.sb-term-label {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 2px;
+}
+.sb-term-val {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: rgba(255,255,255,.72);
+}
+
+/* nav */
+.sb-nav {
+  padding: 16px 12px;
+  flex: 1;
+}
+
+.sb-section-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.25);
+  padding: 0 8px;
+  margin: 10px 0 6px;
+}
+.sb-section-label:first-child { margin-top: 0; }
+
+.sb-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background .15s;
+  color: rgba(255,255,255,.55);
+  font-size: 12.5px;
+  font-weight: 400;
+  margin-bottom: 1px;
+}
+.sb-link:hover { background: rgba(255,255,255,.07); color: #fff; }
+.sb-link.active { background: rgba(34,181,164,.18); color: #fff; }
+.sb-link.active svg { stroke: var(--teal); }
+.sb-link svg { flex-shrink: 0; }
+
+.sb-link-ext {
+  margin-left: auto;
+  opacity: .3;
+  font-size: 10px;
+}
+
+.sb-bottom {
+  padding: 14px 20px;
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+.sb-date {
+  font-size: 10.5px;
+  color: rgba(255,255,255,.28);
+  line-height: 1.5;
+}
+
+/* ══════════════════════════════════
+   MAIN WRAPPER
+══════════════════════════════════ */
+.wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* topbar */
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 28px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.tb-greeting {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.tb-sub {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 1px;
+}
+
+.tb-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tb-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  font-family: var(--f);
+  cursor: pointer;
+  border: none;
+  transition: all .15s;
+}
+
+.tb-btn-primary {
+  background: var(--navy);
+  color: #fff;
+}
+.tb-btn-primary:hover { background: var(--navy-2); }
+
+.tb-btn-ghost {
+  background: var(--border-2);
+  color: var(--mid);
+}
+.tb-btn-ghost:hover { background: var(--border); }
+
+/* ══════════════════════════════════
+   BODY GRID
+══════════════════════════════════ */
+.body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 272px;
+  gap: 20px;
+  padding: 22px 28px 60px 22px;
+  align-items: start;
+}
+
+.main { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.right { display: flex; flex-direction: column; gap: 16px; }
+
+/* ══════════════════════════════════
+   FEATURED CARDS ROW
+══════════════════════════════════ */
+.feat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.feat-card {
+  border-radius: var(--r);
+  padding: 18px 16px 14px;
+  cursor: pointer;
+  transition: transform .18s, box-shadow .18s;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 110px;
+}
+.feat-card:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,.12); }
+
+.fc-teal    { background: var(--teal); }
+.fc-orange  { background: var(--orange); }
+.fc-navy    { background: var(--navy); }
+.fc-amber   { background: var(--amber); }
+
+.feat-card::after {
+  content: '';
+  position: absolute;
+  right: -20px; top: -20px;
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  pointer-events: none;
+}
+
+.fc-icon {
+  margin-bottom: 10px;
+  line-height: 0;
+}
+
+.fc-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.3;
+  flex: 1;
+}
+
+.fc-meta {
+  font-size: 10.5px;
+  color: rgba(255,255,255,.6);
+  margin-top: 8px;
+  font-weight: 400;
+}
+
+.fc-arrow {
+  position: absolute;
+  bottom: 14px; right: 14px;
+  color: rgba(255,255,255,.4);
+  font-size: 14px;
+  transition: color .15s, right .15s;
+}
+.feat-card:hover .fc-arrow { color: rgba(255,255,255,.85); right: 12px; }
+
+/* ══════════════════════════════════
+   SECTION HEADER
+══════════════════════════════════ */
+.sec-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.sec-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sec-badge {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--muted);
+  background: var(--border-2);
+  padding: 2px 7px;
+  border-radius: 20px;
+}
+
+/* ══════════════════════════════════
+   TEACHING RESOURCES — 3 GROUPS
+══════════════════════════════════ */
+.teach-section {}
+
+.teach-tabs {
+  display: flex;
+  gap: 4px;
+  background: var(--border-2);
+  padding: 4px;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  width: fit-content;
+}
+
+.teach-tab {
+  padding: 6px 14px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--mid);
+  cursor: pointer;
+  transition: all .15s;
+  border: none;
+  background: none;
+  font-family: var(--f);
+}
+.teach-tab.active {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+}
+
+.teach-panel { display: none; }
+.teach-panel.active { display: block; }
+
+.teach-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.tool-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all .15s;
+  color: var(--text);
+}
+.tool-card:hover {
+  border-color: var(--teal);
+  box-shadow: 0 2px 10px rgba(34,181,164,.1);
+  transform: translateY(-1px);
+}
+
+.tool-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.td-teal   { background: var(--teal); }
+.td-orange { background: var(--orange); }
+.td-amber  { background: var(--amber); }
+.td-green  { background: var(--green); }
+.td-navy   { background: var(--navy); }
+.td-mid    { background: var(--muted); }
+
+.tool-name { font-size: 12.5px; font-weight: 400; flex: 1; }
+
+.tool-tag {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.tt-both   { color: var(--teal-d);  background: var(--teal-bg); }
+.tt-sheets { color: #7A6010;        background: var(--amber-bg); }
+.tt-inter  { color: #1A6E88;        background: #E3F2F8; }
+
+/* ══════════════════════════════════
+   PLATFORMS GRID
+══════════════════════════════════ */
+.plat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.plat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  cursor: pointer;
+  transition: all .15s;
+  color: var(--text);
+}
+.plat-card:hover { border-color: var(--border); background: var(--border-2); }
+
+.plat-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.plat-name { font-size: 12px; font-weight: 400; }
+
+/* ══════════════════════════════════
+   RIGHT PANEL — ASSESSMENT TILES
+══════════════════════════════════ */
+.panel-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.panel-head {
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid var(--border-2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel-title {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.panel-sub {
+  font-size: 10px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.assess-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  padding: 12px;
+}
+
+.a-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  padding: 13px 6px 11px;
+  border-radius: 9px;
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  cursor: pointer;
+  transition: all .18s;
+  text-align: center;
+}
+.a-tile:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+.a-tile:hover .a-tile-lbl { color: rgba(255,255,255,.65); }
+.a-tile:hover .a-icon svg { stroke: rgba(255,255,255,.85); }
+
+.a-icon { line-height: 0; }
+.a-tile-lbl {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--mid);
+  line-height: 1.3;
+}
+
+/* ══════════════════════════════════
+   RIGHT PANEL — TABS (DEPT + EXAM)
+══════════════════════════════════ */
+.tab-bar {
+  display: flex;
+  border-bottom: 1px solid var(--border-2);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 11px 8px;
+  font-size: 11.5px;
+  font-weight: 500;
+  font-family: var(--f);
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color .15s, border-color .15s;
+}
+.tab-btn.active { color: var(--teal-d); border-bottom-color: var(--teal); }
+.tab-btn:hover:not(.active) { color: var(--mid); }
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* link list */
+.llist { padding: 4px 0; }
+
+.ll-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background .12s;
+  color: var(--text);
+}
+.ll-row:hover { background: var(--bg); }
+.ll-row:hover .ll-arrow { opacity: 1; transform: translateX(2px); }
+
+.ll-ico {
+  width: 24px; height: 24px;
+  border-radius: 6px;
+  background: var(--border-2);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.ll-name {
+  flex: 1;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.ll-arrow {
+  opacity: 0;
+  transition: opacity .12s, transform .12s;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════
+   SCHEME OF WORK CARD (FULL WIDTH)
+══════════════════════════════════ */
+.sow-card {
+  background: var(--navy);
+  border-radius: var(--r);
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow .18s;
+  color: inherit;
+}
+.sow-card:hover { box-shadow: 0 8px 28px rgba(26,43,72,.3); }
+
+.sow-card::before {
+  content: '';
+  position: absolute;
+  right: -60px; top: -60px;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(34,181,164,.2) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.sow-left {}
+.sow-eyebrow {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 5px;
+}
+.sow-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.sow-desc {
+  font-size: 11.5px;
+  color: rgba(255,255,255,.4);
+  font-weight: 300;
+  max-width: 400px;
+  line-height: 1.5;
+}
+
+.sow-pills {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.sow-pill {
+  font-size: 10.5px;
+  font-weight: 500;
+  color: rgba(255,255,255,.45);
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+
+.sow-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--teal);
+  color: #fff;
+  font-family: var(--f);
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 11px 20px;
+  border-radius: 9px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background .15s;
+}
+.sow-card:hover .sow-btn { background: var(--teal-d); }
+
+/* ══════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════ */
+@keyframes up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.topbar   { animation: up .3s ease both; }
+.feat-row { animation: up .35s .05s ease both; }
+.main > *:nth-child(2) { animation: up .35s .08s ease both; }
+.main > *:nth-child(3) { animation: up .35s .11s ease both; }
+.main > *:nth-child(4) { animation: up .35s .14s ease both; }
+.right > * { animation: up .35s .07s ease both; }
+
+/* ══════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════ */
+@media (max-width: 900px) {
+  .sidebar { width: 60px; }
+  .sb-name, .sb-sub, .sb-term, .sb-section-label, .sb-link span, .sb-link-ext, .sb-date { display: none; }
+  .sb-link { justify-content: center; padding: 10px; }
+  .body { grid-template-columns: 1fr; padding: 16px; }
+  .feat-row { grid-template-columns: repeat(2, 1fr); }
+  .teach-grid { grid-template-columns: 1fr 1fr; }
+  .plat-grid { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- ── SIDEBAR ── -->
+<aside class="sidebar">
+  <div class="sb-top">
+    <div class="sb-brand">
+      <div class="sb-logo">W</div>
+      <div>
+        <div class="sb-name">WCIB Maths</div>
+      </div>
+    </div>
+    <div class="sb-sub">Department Hub</div>
+    <div class="sb-term">
+      <div class="sb-term-label">Michaelmas Term</div>
+      <div class="sb-term-val" id="term-week">Loading…</div>
+    </div>
+  </div>
+
+  <nav class="sb-nav">
+    <div class="sb-section-label">Navigate</div>
+
+    <a class="sb-link active" href="#">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      <span>Hub</span>
+    </a>
+
+    <a class="sb-link" href="https://shakirasuwan-source.github.io/wcib-maths-sow/" target="_blank">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      <span>Scheme of Work</span>
+      <span class="sb-link-ext">↗</span>
+    </a>
+
+    <div class="sb-section-label">Daily</div>
+
+    <a class="sb-link" href="#teach">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      <span>Teaching Resources</span>
+    </a>
+
+    <a class="sb-link" href="#assess">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      <span>Assessment &amp; Data</span>
+    </a>
+
+    <a class="sb-link" href="#platforms">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <span>Platforms</span>
+    </a>
+
+    <div class="sb-section-label">Admin</div>
+
+    <a class="sb-link" href="#dept">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+      <span>Department</span>
+    </a>
+
+    <a class="sb-link" href="#exam">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <span>Exam Resources</span>
+    </a>
+  </nav>
+
+  <div class="sb-bottom">
+    <div class="sb-date" id="sb-date">—</div>
+  </div>
+</aside>
+
+<!-- ── WRAPPER ── -->
+<div class="wrapper">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div>
+      <div class="tb-greeting" id="greeting">Good morning</div>
+      <div class="tb-sub" id="tb-date">Loading…</div>
+    </div>
+    <div class="tb-right">
+      <a href="https://shakirasuwan-source.github.io/wcib-maths-hub/" target="_blank">
+        <button class="tb-btn tb-btn-ghost">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Maths Hub
+        </button>
+      </a>
+      <a href="#" target="_blank">
+        <button class="tb-btn tb-btn-primary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Planner &amp; Tasks
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+    <div class="main">
+
+      <!-- FEAT CARDS -->
+      <div class="feat-row">
+        <a class="feat-card fc-teal" href="https://shakirasuwan-source.github.io/wcib-maths-sow/" target="_blank">
+          <div class="fc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <div class="fc-title">Scheme of Work</div>
+          <div class="fc-meta">2026/27 · Years 7–13</div>
+          <span class="fc-arrow">→</span>
+        </a>
+        <a class="feat-card fc-orange" href="#" target="_blank">
+          <div class="fc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <div class="fc-title">Assessment Hub</div>
+          <div class="fc-meta">Trackers + Schedules</div>
+          <span class="fc-arrow">→</span>
+        </a>
+        <a class="feat-card fc-navy" href="#" target="_blank">
+          <div class="fc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+          <div class="fc-title">Maths Team Folder</div>
+          <div class="fc-meta">SharePoint · All files</div>
+          <span class="fc-arrow">→</span>
+        </a>
+        <a class="feat-card fc-amber" href="#" target="_blank">
+          <div class="fc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div class="fc-title">Key Dates</div>
+          <div class="fc-meta">Michaelmas Term</div>
+          <span class="fc-arrow">→</span>
+        </a>
+      </div>
+
+      <!-- SCHEME OF WORK FULL CARD -->
+      <a class="sow-card" href="https://shakirasuwan-source.github.io/wcib-maths-sow/" target="_blank">
+        <div class="sow-left">
+          <div class="sow-eyebrow">Live · 2026/27</div>
+          <div class="sow-title">WCIB Maths — Scheme of Work</div>
+          <div class="sow-desc">Track lesson progress, view assessment schedules, and browse the school calendar by year group and class set.</div>
+          <div class="sow-pills">
+            <span class="sow-pill">Year 7</span><span class="sow-pill">Year 8</span><span class="sow-pill">Year 9</span>
+            <span class="sow-pill">Year 10</span><span class="sow-pill">Year 11</span><span class="sow-pill">Year 12</span><span class="sow-pill">Year 13</span>
+          </div>
+        </div>
+        <button class="sow-btn">
+          Open SoW
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </a>
+
+      <!-- TEACHING RESOURCES -->
+      <div class="teach-section" id="teach">
+        <div class="sec-head">
+          <div class="sec-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            Teaching Resources
+          </div>
+        </div>
+
+        <div class="teach-tabs">
+          <button class="teach-tab active" onclick="switchTab(this,'teach-deliver')">Deliver a Lesson</button>
+          <button class="teach-tab" onclick="switchTab(this,'teach-practise')">Practice &amp; Homework</button>
+          <button class="teach-tab" onclick="switchTab(this,'teach-engage')">Starters &amp; Interactives</button>
+        </div>
+
+        <!-- DELIVER -->
+        <div class="teach-panel active" id="teach-deliver">
+          <div class="teach-grid">
+            <a class="tool-card" href="#" target="_blank"><div class="tool-dot td-teal"></div><span class="tool-name">Go Teach Maths</span><span class="tool-tag tt-both">Slides + Tasks</span></a>
+            <a class="tool-card" href="#" target="_blank"><div class="tool-dot td-orange"></div><span class="tool-name">MathsPad</span><span class="tool-tag tt-both">Slides + Tasks</span></a>
+            <a class="tool-card" href="#" target="_blank"><div class="tool-dot td-amber"></div><span class="tool-name">PixiMaths</span><span class="tool-tag tt-both">Slides + Tasks</span></a>
+            <a class="tool-card" href="#" target="_blank"><div class="tool-dot td-green"></div><span class="tool-name">Westie's Workshop</span><span class="tool-tag tt-both">Slides + Tasks</span></a>
+            <a class="tool-card" href="#" target="_blank"><div class="tool-dot td-navy"></div><span class="tool-name">Dr Frost Maths</span><span class="tool-tag tt-both">Lessons + Qs</span></a>
+          </div>
+        </div>
+
+        <!-- PRACTISE -->
+        <div class="teach-panel" id="teach-practise">
+          <div class="teach-grid">
+            <a class="tool-card" href="#" target="_blank"><div class="tool-dot td-teal"></div><span class="tool-name">Corbettmaths</span><span class="tool-tag tt-sheets">Worksheets</span></a>
+            <a class="tool-card" href="#" target="_blank"><div class="tool-dot td-orange"></div><span class="tool-name">Dr Austin Maths</span><span class="tool-tag tt-sheets">Worksheets</span></a>
+            <a class="tool-card" href="#" target="_blank"><div class="tool-dot td-amber"></div><span class="tool-name">Maths Genie</span><span class="tool-tag tt-sheets">Worksheets</span></a>
+            <a class="tool-card" href="#" target="_blank"><div class="tool-dot td-navy"></div><span class="tool-name">Sparx Maths</span><span class="tool-tag tt-sheets">Adaptive</span></a>
+            <a class="tool-card" href="#" target="_blank"><div class="tool-dot td-green"></div><span class="tool-name">Save My Exams</span><span class="tool-tag tt-sheets">Revision</span></a>
+          </div>
+        </div>
+
+        <!-- ENGAGE -->
+        <div class="teach-panel" id="teach-engage">
+          <div class="teach-grid">
+            <a class="tool-card" href="#" target="_blank"><div class="tool-dot td-teal"></div><span class="tool-name">Mathsbox</span><span class="tool-tag tt-inter">Starters</span></a>
+            <a class="tool-card" href="#" target="_blank"><div class="tool-dot td-orange"></div><span class="tool-name">Wordswall</span><span class="tool-tag tt-inter">Vocab</span></a>
+            <a class="tool-card" href="#" target="_blank"><div class="tool-dot td-amber"></div><span class="tool-name">MathsBot</span><span class="tool-tag tt-inter">Starters</span></a>
+            <a class="tool-card" href="#" target="_blank"><div class="tool-dot td-navy"></div><span class="tool-name">Blooket</span><span class="tool-tag tt-inter">Gameshow</span></a>
+            <a class="tool-card" href="#" target="_blank"><div class="tool-dot td-green"></div><span class="tool-name">Quizlet</span><span class="tool-tag tt-inter">Flashcards</span></a>
+            <a class="tool-card" href="#" target="_blank"><div class="tool-dot td-mid"></div><span class="tool-name">Desmos</span><span class="tool-tag tt-inter">Graphing</span></a>
+            <a class="tool-card" href="#" target="_blank"><div class="tool-dot td-teal"></div><span class="tool-name">GeoGebra</span><span class="tool-tag tt-inter">Geometry</span></a>
+            <a class="tool-card" href="#" target="_blank"><div class="tool-dot td-orange"></div><span class="tool-name">Wayground</span><span class="tool-tag tt-inter">Interactive</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLATFORMS -->
+      <div id="platforms">
+        <div class="sec-head">
+          <div class="sec-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Subscription Platforms
+          </div>
+        </div>
+        <div class="plat-grid">
+          <a class="plat-card" href="#" target="_blank"><div class="plat-dot" style="background:#3B82F6"></div><span class="plat-name">ActiveLearn</span></a>
+          <a class="plat-card" href="#" target="_blank"><div class="plat-dot" style="background:#14B8A6"></div><span class="plat-name">ActiveHub</span></a>
+          <a class="plat-card" href="#" target="_blank"><div class="plat-dot" style="background:var(--orange)"></div><span class="plat-name">Sparx Maths</span></a>
+          <a class="plat-card" href="#" target="_blank"><div class="plat-dot" style="background:#6366F1"></div><span class="plat-name">Pearson ExamWizard</span></a>
+          <a class="plat-card" href="#" target="_blank"><div class="plat-dot" style="background:var(--teal)"></div><span class="plat-name">Save My Exams</span></a>
+          <a class="plat-card" href="#" target="_blank"><div class="plat-dot" style="background:var(--amber)"></div><span class="plat-name">Dr Frost Maths</span></a>
+        </div>
+      </div>
+
+    </div><!-- /main -->
+
+    <!-- RIGHT PANEL -->
+    <div class="right">
+
+      <!-- ASSESSMENT & DATA -->
+      <div class="panel-card" id="assess">
+        <div class="panel-head">
+          <div class="panel-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            Assessment &amp; Data
+          </div>
+          <span class="panel-sub">Daily use</span>
+        </div>
+        <div class="assess-grid">
+          <div class="a-tile">
+            <div class="a-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <div class="a-tile-lbl">Tracker<br>Y7–9</div>
+          </div>
+          <div class="a-tile">
+            <div class="a-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <div class="a-tile-lbl">Tracker<br>Y10–11</div>
+          </div>
+          <div class="a-tile">
+            <div class="a-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <div class="a-tile-lbl">Tracker<br>Y12+</div>
+          </div>
+          <div class="a-tile">
+            <div class="a-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            <div class="a-tile-lbl">Reporting<br>Guidelines</div>
+          </div>
+          <div class="a-tile">
+            <div class="a-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+            <div class="a-tile-lbl">Class<br>Allocation</div>
+          </div>
+          <div class="a-tile">
+            <div class="a-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+            <div class="a-tile-lbl">Power<br>BI</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DEPT + EXAM RESOURCES (TABBED) -->
+      <div class="panel-card" id="dept">
+        <div class="tab-bar">
+          <button class="tab-btn active" onclick="switchResTab(this,'res-dept')">Department</button>
+          <button class="tab-btn" onclick="switchResTab(this,'res-exam')">Exam Resources</button>
+        </div>
+
+        <!-- DEPT -->
+        <div class="tab-content active" id="res-dept">
+          <div class="llist">
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><span class="ll-name">Master Document</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><span class="ll-name">Maths Dept Handbook</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><span class="ll-name">Staff Absence / Cover Form</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><span class="ll-name">Student Borrowing Log</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><span class="ll-name">Behaviour Sanctions</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><span class="ll-name">Department Meetings</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div><span class="ll-name">Competitions</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><span class="ll-name">Teacher Resource Logins</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><span class="ll-name">Academic Calendar 25/26</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><span class="ll-name">New Teacher Induction</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+
+        <!-- EXAM -->
+        <div class="tab-content" id="res-exam">
+          <div class="llist">
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><span class="ll-name">Exam Support Session Registers</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><span class="ll-name">[Internal] Exam Registers</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><span class="ll-name">Edexcel Exam Materials</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="16" y1="18" x2="16" y2="20"/><line x1="8" y1="18" x2="8" y2="20"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="4" x2="7" y2="19"/><line x1="12" y1="4" x2="17" y2="19"/><line x1="6.5" y1="17" x2="17.5" y2="17"/></svg></div><span class="ll-name">Pathways &amp; Exam Entries</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><span class="ll-name">Exam Results</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><span class="ll-name">Converting Marks to UMS</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /right -->
+  </div><!-- /body -->
+</div><!-- /wrapper -->
+
+<script>
+// Greeting
+const now = new Date();
+const hr = now.getHours();
+const greet = hr < 12 ? 'Good morning' : hr < 17 ? 'Good afternoon' : 'Good evening';
+document.getElementById('greeting').textContent = greet;
+
+const dateStr = now.toLocaleDateString('en-GB', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+document.getElementById('tb-date').textContent = dateStr;
+document.getElementById('sb-date').textContent = dateStr;
+
+// Term week
+const termStart = new Date(now.getFullYear(), 8, 1);
+const diff = Math.max(0, now - termStart);
+const wk = Math.min(Math.ceil(diff / (7 * 24 * 60 * 60 * 1000)) || 1, 14);
+document.getElementById('term-week').textContent = 'Week ' + wk + ' of 14';
+
+// Teaching tabs
+function switchTab(btn, panelId) {
+  document.querySelectorAll('.teach-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.teach-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+
+// Resource tabs
+function switchResTab(btn, panelId) {
+  btn.closest('.panel-card').querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.closest('.panel-card').querySelectorAll('.tab-content').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+</script>
+</body>
+</html>
