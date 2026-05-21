@@ -1,0 +1,137 @@
+Here are your Replit instructions — each change is numbered, with the exact text to find and replace using **Ctrl+H** (Find & Replace) in the Replit editor.
+
+---
+
+**CHANGE 1 — Trello button (replaces Planner & Tasks)**
+
+Find:
+```html
+<a href="#" target="_blank">
+        <button class="tb-btn tb-btn-primary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Planner &amp; Tasks
+        </button>
+      </a>
+```
+Replace with:
+```html
+<a href="https://trello.com/b/Gg4twjge/maths-dept-tracker" target="_blank">
+        <button class="tb-btn tb-btn-primary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><rect x="7" y="7" width="3" height="9" rx="1"/><rect x="14" y="7" width="3" height="5" rx="1"/></svg>
+          Trello Board
+        </button>
+      </a>
+```
+
+---
+
+**CHANGE 2 — Rename "Maths Hub" button to "Student Maths Hub"**
+
+Find:
+```html
+          Maths Hub
+```
+Replace with:
+```html
+          Student Maths Hub
+```
+
+---
+
+**CHANGE 3 — Also update the sidebar link for Maths Hub**
+
+Find:
+```html
+href="https://shakirasuwan-source.github.io/wcib-maths-hub/" target="_blank">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      <span>Hub</span>
+```
+Replace with:
+```html
+href="https://shakirasuwan-source.github.io/wcib-maths-hub/" target="_blank">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      <span>Student Hub</span>
+```
+
+---
+
+**CHANGE 4 — Remove "Class Allocation" tile from Assessment grid**
+
+Find and **delete** this entire block:
+```html
+          <div class="a-tile">
+            <div class="a-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+            <div class="a-tile-lbl">Class<br>Allocation</div>
+          </div>
+```
+
+Then, because the grid is now 5 tiles (an odd number), change the grid columns. Find:
+```css
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  padding: 12px;
+```
+Replace with:
+```css
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 12px;
+```
+
+---
+
+**CHANGE 5 — Move "Reporting Guidelines" out of Assessment tiles and into Department tab**
+
+First, **delete** this tile from the Assessment grid:
+```html
+          <div class="a-tile">
+            <div class="a-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            <div class="a-tile-lbl">Reporting<br>Guidelines</div>
+          </div>
+```
+
+Then, inside the **Department tab** (`id="res-dept"`), find the Master Document row and **add a Documents label and Reporting Guidelines row before it**:
+
+Find:
+```html
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><span class="ll-name">Master Document</span>
+```
+Replace with:
+```html
+            <div style="font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px 4px;">Documents</div>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><span class="ll-name">Reporting Guidelines</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><span class="ll-name">Master Document</span>
+```
+
+---
+
+**CHANGE 6 — Remove "New Teacher Induction" link**
+
+Find and **delete**:
+```html
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><span class="ll-name">New Teacher Induction</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+```
+
+---
+
+**CHANGE 7 — Remove "Academic Calendar 25/26" link**
+
+Find and **delete**:
+```html
+            <a class="ll-row" href="#"><div class="ll-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><span class="ll-name">Academic Calendar 25/26</span><svg class="ll-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+```
+
+---
+
+**CHANGE 8 — Remove "ActiveLearn" from Platforms**
+
+Find and **delete**:
+```html
+          <a class="plat-card" href="#" target="_blank"><div class="plat-dot" style="background:#3B82F6"></div><span class="plat-name">ActiveLearn</span></a>
+```
+
+---
+
+Once all 8 changes are in, hit **Run** and check the preview. Let me know how it looks or what else needs adjusting — I can also write the shared nav bar snippet for the SoW page whenever you're ready.
