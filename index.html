@@ -113,14 +113,15 @@ a { text-decoration: none; color: inherit; }
 
 .sb-logo {
   width: 36px; height: 36px;
-  background: var(--accent);
   border-radius: 9px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--on-dark);
   flex-shrink: 0;
-  letter-spacing: -.02em;
+  overflow: hidden;
+}
+.sb-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .sb-name {
@@ -856,7 +857,7 @@ a { text-decoration: none; color: inherit; }
 <aside class="sidebar">
   <div class="sb-top">
     <div class="sb-brand">
-      <div class="sb-logo">W</div>
+      <div class="sb-logo"><img src="https://raw.githubusercontent.com/shakirasuwan-source/wcib-maths-hub/main/artifacts/maths-hub/public/wellington-logo.png" alt="Wellington College logo"></div>
       <div>
         <div class="sb-name">WCIB Maths</div>
       </div>
