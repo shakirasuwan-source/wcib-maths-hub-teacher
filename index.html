@@ -42,7 +42,7 @@
 
   --blue:    #A8BFD1;
   --blue-bg: #D9E4ED;
-  --blue-d:  #6E8AA5;
+  --blue-d:  #3D5872;
 
   --blush:    #DBA39D;
   --blush-bg: #F0DDD9;
@@ -446,6 +446,50 @@ a { text-decoration: none; color: inherit; }
   margin-top: 1px;
 }
 
+/* Key Dates — sectioned variant */
+.kd-section + .kd-section {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.kd-section-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 7px;
+}
+.kd-link {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--blue-d);
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.kd-link:hover { color: var(--blush-d); }
+.kd-date.kd-date-exam { background: var(--blue-bg); }
+.kd-date.kd-date-exam .kd-d,
+.kd-date.kd-date-exam .kd-m { color: var(--blue-d); }
+.kd-tag {
+  display: inline-block;
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--blue-d);
+  background: var(--blue-bg);
+  border-radius: 4px;
+  padding: 1px 5px;
+  margin-left: 6px;
+  vertical-align: 1px;
+}
+.kd-rows-exam { grid-template-columns: 1fr; gap: 6px; }
+
 /* ══════════════════════════════════
    SECTION HEADER
 ══════════════════════════════════ */
@@ -463,6 +507,11 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   align-items: center;
   gap: 8px;
+}
+.sec-sub {
+  font-size: 10.5px;
+  color: var(--muted);
+  font-weight: 400;
 }
 
 .sec-badge {
@@ -515,7 +564,6 @@ a { text-decoration: none; color: inherit; }
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
 }
-#teach-deliver .teach-grid { grid-template-columns: repeat(2, 1fr); }
 
 .tool-card {
   background: var(--surface);
@@ -967,24 +1015,45 @@ a { text-decoration: none; color: inherit; }
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--orange-d)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               <span class="kd-heading">Key Dates</span>
             </div>
-            <span class="kd-sub">Michaelmas Term 2026/27</span>
+            <span class="kd-sub">Trinity Term 2025/26</span>
           </div>
-          <div class="kd-rows">
-            <div class="kd-item">
-              <div class="kd-date"><div class="kd-d">02</div><div class="kd-m">Sep</div></div>
-              <div class="kd-label"><div class="kd-lbl-title">Term Begins</div><div class="kd-lbl-sub">Inset Day · All staff</div></div>
+
+          <div class="kd-section">
+            <div class="kd-section-label"><span>Academic</span></div>
+            <div class="kd-rows">
+              <div class="kd-item">
+                <div class="kd-date"><div class="kd-d">22</div><div class="kd-m">May</div></div>
+                <div class="kd-label"><div class="kd-lbl-title">Y11 Mock Results</div><div class="kd-lbl-sub">Data drop · 5pm</div></div>
+              </div>
+              <div class="kd-item">
+                <div class="kd-date"><div class="kd-d">28</div><div class="kd-m">May</div></div>
+                <div class="kd-label"><div class="kd-lbl-title">Half-Term Break</div><div class="kd-lbl-sub">Returns 08 Jun</div></div>
+              </div>
+              <div class="kd-item">
+                <div class="kd-date"><div class="kd-d">19</div><div class="kd-m">Jun</div></div>
+                <div class="kd-label"><div class="kd-lbl-title">Y10 CAT4 Window</div><div class="kd-lbl-sub">All classes</div></div>
+              </div>
+              <div class="kd-item">
+                <div class="kd-date"><div class="kd-d">03</div><div class="kd-m">Jul</div></div>
+                <div class="kd-label"><div class="kd-lbl-title">Reports Deadline</div><div class="kd-lbl-sub">Y7–Y10 · 12pm</div></div>
+              </div>
             </div>
-            <div class="kd-item">
-              <div class="kd-date"><div class="kd-d">23</div><div class="kd-m">Oct</div></div>
-              <div class="kd-label"><div class="kd-lbl-title">Half-Term Break</div><div class="kd-lbl-sub">Returns 02 Nov</div></div>
+          </div>
+
+          <div class="kd-section">
+            <div class="kd-section-label">
+              <span>Upcoming External Exams</span>
+              <a class="kd-link" href="https://qualifications.pearson.com/en/support/support-topics/exams/exam-timetables.html" target="_blank">Full timetable →</a>
             </div>
-            <div class="kd-item">
-              <div class="kd-date"><div class="kd-d">13</div><div class="kd-m">Nov</div></div>
-              <div class="kd-label"><div class="kd-lbl-title">Parents' Evening</div><div class="kd-lbl-sub">Year 11</div></div>
-            </div>
-            <div class="kd-item">
-              <div class="kd-date"><div class="kd-d">12</div><div class="kd-m">Dec</div></div>
-              <div class="kd-label"><div class="kd-lbl-title">End of Term</div><div class="kd-lbl-sub">Carol Service</div></div>
+            <div class="kd-rows kd-rows-exam">
+              <div class="kd-item">
+                <div class="kd-date kd-date-exam"><div class="kd-d">03</div><div class="kd-m">Jun</div></div>
+                <div class="kd-label"><div class="kd-lbl-title">Mathematics A · Paper 2H<span class="kd-tag">IGCSE</span></div><div class="kd-lbl-sub">Wed · Morning · 2h · 4MA1/2H</div></div>
+              </div>
+              <div class="kd-item">
+                <div class="kd-date kd-date-exam"><div class="kd-d">—</div><div class="kd-m">Jun</div></div>
+                <div class="kd-label"><div class="kd-lbl-title">IAL Maths · P1–P4, S1–S3, M1–M2, D1<span class="kd-tag">IAL</span></div><div class="kd-lbl-sub"><a class="kd-link" href="https://qualifications.pearson.com/en/support/support-topics/exams/exam-timetables.html" target="_blank">View dates on Pearson →</a></div></div>
+              </div>
             </div>
           </div>
         </div>
@@ -1028,7 +1097,6 @@ a { text-decoration: none; color: inherit; }
             <a class="tool-card" href="https://www.goteachmaths.co.uk/" target="_blank"><div class="tool-dot td-teal"></div><span class="tool-name">Go Teach Maths</span><span class="tool-tag tt-both">Slides + Tasks</span></a>
             <a class="tool-card" href="https://www.mathspad.co.uk/" target="_blank"><div class="tool-dot td-orange"></div><span class="tool-name">MathsPad</span><span class="tool-tag tt-both">Slides + Tasks</span></a>
             <a class="tool-card" href="https://www.piximaths.co.uk/ks2-ks3-ks4-resource-index" target="_blank"><div class="tool-dot td-amber"></div><span class="tool-name">PixiMaths</span><span class="tool-tag tt-both">Slides + Tasks</span></a>
-            <a class="tool-card" href="https://www.drfrost.org/dashboard" target="_blank"><div class="tool-dot td-navy"></div><span class="tool-name">Dr Frost Maths</span><span class="tool-tag tt-both">Lessons + Qs</span></a>
           </div>
         </div>
 
@@ -1038,8 +1106,6 @@ a { text-decoration: none; color: inherit; }
             <a class="tool-card" href="https://corbettmaths.com/" target="_blank"><div class="tool-dot td-teal"></div><span class="tool-name">Corbettmaths</span><span class="tool-tag tt-sheets">Worksheets</span></a>
             <a class="tool-card" href="https://www.draustinmaths.com/" target="_blank"><div class="tool-dot td-orange"></div><span class="tool-name">Dr Austin Maths</span><span class="tool-tag tt-sheets">Worksheets</span></a>
             <a class="tool-card" href="https://yesgenie.com/gcse/maths" target="_blank"><div class="tool-dot td-amber"></div><span class="tool-name">Maths Genie</span><span class="tool-tag tt-sheets">Worksheets</span></a>
-            <a class="tool-card" href="https://maths.sparx-learning.com/teacher/group/022fe2ea-03fe-4aea-af23-ffdc0cd830af/homework/planner?s=wellingtoncollegeinternationalbangkok&school=ae339d85-8753-4e59-af67-8dacbfd4d8e7" target="_blank"><div class="tool-dot td-navy"></div><span class="tool-name">Sparx Maths</span><span class="tool-tag tt-sheets">Adaptive</span></a>
-            <a class="tool-card" href="https://www.savemyexams.com/join/" target="_blank"><div class="tool-dot td-green"></div><span class="tool-name">Save My Exams</span><span class="tool-tag tt-sheets">Revision</span></a>
           </div>
         </div>
 
@@ -1065,6 +1131,7 @@ a { text-decoration: none; color: inherit; }
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             Subscription Platforms
           </div>
+          <span class="sec-sub">Licensed accounts · lessons, practice &amp; assessment in one place</span>
         </div>
         <div class="plat-grid">
           <a class="plat-card" href="https://homepage.pearson.com/#/spa/wrapper/application/urn:pearson:gps:spa:landingspaid" target="_blank"><div class="plat-dot" style="background:var(--teal)"></div><span class="plat-name">ActiveHub</span></a>
